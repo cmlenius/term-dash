@@ -1,0 +1,23 @@
+{:source-paths ["src"]
+ :dependencies [[org.clojure/tools.cli "1.0.194"]
+                [mount "0.1.15"]
+                [reagent "0.8.1" :exclusions [[cljsjs/react]
+                                              [cljsjs/react-dom]
+                                              [cljsjs/create-react-class]]]
+                [re-frame "0.10.6"]]
+ :nrepl {:port 9000
+         :middleware []}
+ :builds {:app {:output-to  "target/main.js"
+                :output-dir "target/js/compiled/prod"
+                :target     :node-script
+                :devtools   {:after-load       term-dash.app/reload!}
+                :dev        {:main             term-dash.core/-main
+                             :output-to        "target/js/compiled/term-dash.js"
+                             :output-dir       "target/js/compiled/dev"}
+                :release    {:main             term-dash.core/-main
+                             :compiler-options {:optimizations :simple}}}
+          :test {:output-to "target/test.js"
+                 :output-dir "target/js/compiled/test"
+                 :target :node-test
+                 :ns-regexp "-test$"
+                 :autorun true}}}
