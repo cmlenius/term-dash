@@ -37,7 +37,7 @@
                     :label          "Docker"
                     :render         docker/docker
                     :interval-fn    docker/get-docker-data
-                    :interval-delay 10000}
+                    :interval-delay 6000}
    :network-usage  {:top            "30%"
                     :left           "50%"
                     :width          "25%"
@@ -53,7 +53,7 @@
                     :label          "Processes"
                     :render         processes/processes
                     :interval-fn    processes/get-processes
-                    :interval-delay 7500}
+                    :interval-delay 5000}
    :stock-intraday {:top            "20%"
                     :left           "0%"
                     :width          "50%"

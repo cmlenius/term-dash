@@ -21,7 +21,7 @@
 (defn table
   "Table component using a number of lists as columns"
   [{:keys [headers rows spacing]
-    :or {spacing 4}}]
+    :or {spacing 2}}]
   (let [columns    (rows->columns headers rows)
         col-widths (gen-column-widths columns spacing)]
     [:<>

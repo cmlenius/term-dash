@@ -6,7 +6,7 @@
 
 (def baseURL "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&apikey=SC171S2F4AAA4NRW")
 (def headers ["Symbol" "Price" "Change" "Change %"])
-(def stock-list ["VFV.TO" "XEF.TO" "ZCN.TO" "MG" "AC"])
+(def stock-list ["VFV.TO" "GOOGL" "AMZN" "FB" "MG" "AC"])
 
 (defn format-data
   "Format data to be displayed in table format"
@@ -44,7 +44,7 @@
                                    :format-fn format-data
                                    :cmd       "curl"
                                    :args      ["-X" "GET" url]})
-        (* idx 60000)))))
+        (* idx 20000)))))
 
 (defn stock-ticker
   "Displays stock data in a list"

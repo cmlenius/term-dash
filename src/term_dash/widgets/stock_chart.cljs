@@ -5,7 +5,7 @@
     [term-dash.utils :as utils]))
 
 (def context (js/require "drawille-canvas-blessed-contrib"))
-(def symbol "VFV.TO")
+(def sym "VFV.TO")
 
 (def config-map
   {:stock-intraday
@@ -122,7 +122,7 @@
 (defn get-stock-data
   "Fetch stock data from Alphavantage"
   [w-key]
-  (let [url (alpha-vantage-url w-key symbol)]
+  (let [url (alpha-vantage-url w-key sym)]
     (shell/run-shell-command {:event     [:set-data w-key]
                               :format-fn (partial format-data w-key)
                               :cmd       "curl"
@@ -156,9 +156,11 @@
        :align   :right
        :content (let [plus-minus (utils/round-dec (- end start) 2)
                       percent    (utils/round-dec (/ end start) 2)]
-                  (utils/color
-                    (str plus-minus " (" percent "%)")
-                    color))}]
+                  (str
+                    sym " "
+                    (utils/color
+                      (str plus-minus " (" percent "%)")
+                      color)))}]
      [:text
       {:top     (dec height)
        :left    left
