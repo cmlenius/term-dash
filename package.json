@@ -38,7 +38,7 @@
     "react": "^16.7.0",
     "react-blessed": "^0.5.0",
     "react-dom": "^16.7.0",
-    "systeminformation": "^4.23.1"
+    "systeminformation": "^5.6.4"
   },
   "devDependencies": {
     "loose-envify": "^1.4.0",
